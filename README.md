@@ -20,7 +20,7 @@ You will need the following things properly installed on your computer.
 
 ### Description
 
-  Pass options flag as d or D for deleting files from source path specified. You can leave the delete-options empty if you 
+  Pass delete-options flag as d or D for deleting files from source path specified. You can leave the delete-options empty if you 
 dont want the files to be deleted in the source path
 
 eg) Folder structure
