@@ -1,0 +1,15 @@
+{
+  "name": "Files-Migrate",
+  "version": "1.0.0",
+  "description": "copies files from one directory into another",
+  "main": "index.js",
+  "keywords": [
+    "move files",
+    "directory",
+    "files",
+    "folder"
+  ],
+  "author": "varun ananth",
+  "license": ""
+
+}
