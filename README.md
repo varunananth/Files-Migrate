@@ -16,7 +16,8 @@ You will need the following things properly installed on your computer.
 
 ## Running the script
 
-* `node index.js source-path destination-path file-type delete-options`
+* `node index.js source-path destination-path file-type delete-options. You can leave the delete-options empty if you 
+dont want the files to be deleted in the source path`
 
 Pass options flag as d or D for deleting files from source path specified.
 * source-path (mandatory)
