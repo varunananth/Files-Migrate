@@ -27,11 +27,11 @@ function moveFiles(sourcePath, extension) {
       filesList[count] = filename;
       count = count + 1;
       fs.copyFile(filename, destination, (err) => {
-         if (err) {
-           throw err;
-         }
-       });
-       console.log(`${count} : moved file: ${chalk.green(files[i])} from src path ${chalk.green(filename)} to destination path ${chalk.green(destination)}`);
+        if (err) {
+          throw err;
+        }
+      });
+      console.log('\t' + `${count} : moved file: ${chalk.green(files[i])} from src path ${chalk.green(filename)} to destination path ${chalk.green(destination)}`);
     };
   };
 
@@ -39,40 +39,39 @@ function moveFiles(sourcePath, extension) {
 
 function deleteSourceFile() {
   for (filename of filesList) {
-     fs.unlink(filename, (err) => {
-        if (err) {
-          throw err;
-        }
-      });
+    fs.unlink(filename, (err) => {
+      if (err) {
+        throw err;
+      }
+    });
   }
 }
 
-if(fs.existsSync(sourcePath) && fs.existsSync(destinationPath) && extension) {
+if (fs.existsSync(sourcePath) && fs.existsSync(destinationPath) && extension) {
 
-    if (deleteOption === 'D' || deleteOption === 'd') {
-      Promise.resolve().then(function(){
-        moveFiles(sourcePath, extension);
-      }.bind(sourcePath, extension)).then(function(){
-        deleteSourceFile();
-      });
-    } else if(deleteOption != undefined) {
-      console.log('\n'+'Invalid delete options passed, files in source will not be deleted');
+  if (deleteOption === 'D' || deleteOption === 'd') {
+    Promise.resolve().then(function() {
       moveFiles(sourcePath, extension);
-    } else {
-      console.log('\n'+'Files in source will not be deleted');
-      moveFiles(sourcePath, extension);
-    }
-    console.log('\n');
+    }.bind(sourcePath, extension)).then(function() {
+      deleteSourceFile();
+    });
+  } else if (deleteOption != undefined) {
+    console.log('\n\t' + 'Invalid delete options passed, files in source will not be deleted');
+    moveFiles(sourcePath, extension);
+  } else {
+    console.log('\n\t' + 'Files in source will not be deleted');
+    moveFiles(sourcePath, extension);
+  }
+  console.log('\n');
 } else {
-   if(extension === null || extension === undefined)  {
-     console.log('\n'+'specify the file type');
-   }
-   else if(!fs.existsSync(sourcePath) && !fs.existsSync(destinationPath)) {
-     console.log('\n'+`Both source (${chalk.red(sourcePath)}) and Destination (${chalk.red(sourcePath)}) paths does not exit`);
-   } else if(!fs.existsSync(sourcePath)) {
-      console.log('\n'+`Source path ${chalk.red(sourcePath)} does not exits`);
-    } else {
-      console.log('\n'+`Destination path ${chalk.red(destinationPath)} does not exits`);
-    }
-    console.log('\n');
+  if (!fs.existsSync(sourcePath) && !fs.existsSync(destinationPath)) {
+    console.log('\n\t' + `Both source (${chalk.red(sourcePath)}) and Destination (${chalk.red(sourcePath)}) paths does not exit`);
+  } else if (!fs.existsSync(sourcePath)) {
+    console.log('\n\t' + `Source path ${chalk.red(sourcePath)} does not exits`);
+  } else if (!fs.existsSync(sourcePath)) {
+    console.log('\n\t' + `Destination path ${chalk.red(destinationPath)} does not exits`);
+  } else if (extension === null || extension === undefined) {
+    console.log('\n\t' + chalk.red('Specify the file type'));
+  }
+  console.log('\n');
 }
