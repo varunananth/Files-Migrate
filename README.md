@@ -32,11 +32,10 @@ eg) Folder structure
     c - d - file2.txt
     |
     e - f - g - file3.txt
-    
-    If i need to move all the .txt files under folder 'a' to some other folder say 'x' the the command will be 
-    
-    `node index.js /a /x .txt` and if the files under 'a' folder needs to be deleted the command is 
-    `node index.js /a /x .txt D` or `node index.js /a /x .txt d`.
+ 
+ If i need to move all the .txt files under folder 'a' to some other folder say 'x' the the command will be    
+ `node index.js /a /x .txt` and if the files under 'a' folder needs to be deleted the command is 
+ `node index.js /a /x .txt D` or `node index.js /a /x .txt d`.
  
 * source-path (mandatory)
 * destination-path (mandatory)
