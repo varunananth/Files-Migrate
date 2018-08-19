@@ -1,4 +1,4 @@
-#Files-Migrate
+# Files-Migrate
 
 This README outlines the details of Files-Migrate script that copies files from one directory to another and deletes the file
 from soure if options are specified via command line.
