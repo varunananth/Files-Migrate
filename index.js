@@ -23,7 +23,7 @@ function moveFiles(sourcePath, extension) {
     var stat = fs.lstatSync(filename);
     if (stat.isDirectory()) {
       moveFiles(filename, extension);
-    } else if (filename.indexOf(extension) >= 0) {
+    } else if (files[i].indexOf(extension) >= 0) {
       filesList[count] = filename;
       count = count + 1;
       fs.copyFile(filename, destination, (err) => {
@@ -68,7 +68,7 @@ if (fs.existsSync(sourcePath) && fs.existsSync(destinationPath) && extension) {
     console.log('\n\t' + `Both source (${chalk.red(sourcePath)}) and Destination (${chalk.red(sourcePath)}) paths does not exit`);
   } else if (!fs.existsSync(sourcePath)) {
     console.log('\n\t' + `Source path ${chalk.red(sourcePath)} does not exits`);
-  } else if (!fs.existsSync(sourcePath)) {
+  } else if (!fs.existsSync(destinationPath)) {
     console.log('\n\t' + `Destination path ${chalk.red(destinationPath)} does not exits`);
   } else if (extension === null || extension === undefined) {
     console.log('\n\t' + chalk.red('Specify the file type'));
