@@ -7,7 +7,6 @@ from soure if options are specified via command line.
 
 You will need the following things properly installed on your computer.
 
-* [Git](http://git-scm.com/)
 * [Node.js](http://nodejs.org/) (with NPM)
 
 ## Installation
